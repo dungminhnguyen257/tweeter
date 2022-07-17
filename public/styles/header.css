@@ -1,0 +1,10 @@
+header {
+  height: 510px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
+  background-color: #d6c695;
+}
