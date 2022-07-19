@@ -1,0 +1,58 @@
+.tweet {
+  border: 5px solid black;
+  margin: 20px 0 50px;
+  padding: 10px;
+}
+
+.tweet .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet .header .user .name{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.tweet .header .handle{
+  color: #CEAEE5;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.tweet .content {
+  padding: 30px 0px 30px 30px;
+  border-bottom: 5px solid;
+  text-align: left;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.tweet footer .time{
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.tweet footer .icons{
+  color: #4056A1;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px 15px grey;
+}
+
+.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
+  color: gold;
+} 
