@@ -4,12 +4,13 @@ nav {
   background-color: #4056A1;
   color: #FFFFFF;
   display: flex;
-  padding: 1.5em;
   justify-content: space-between;
+  z-index: 1;
+  position: fixed;
   flex-direction: row;
   align-items: center;
-  z-index: 1;
-  position: absolute
+  padding: 1.5em;
+  overflow: hidden;
 }
 
 .logo {

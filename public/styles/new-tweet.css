@@ -48,3 +48,7 @@
   font-family: 'Bungee', sans-serif;
   font-weight: 5px;
 }
+
+.overLimit {
+  color: red;
+}
