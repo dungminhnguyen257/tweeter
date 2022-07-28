@@ -3,7 +3,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  width: 99%;
+  padding-top: 30px;
+}
+
+.new-tweet #error {
+  display: none;
+  justify-content: flex-start;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 50px;
+  border: 3px solid red;
+  padding: 2px 30px;
+  width: 100%
 }
 
 .new-tweet-form {
@@ -11,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%
+  width: 99%
 }
 
 .tweet-input {
@@ -49,6 +61,7 @@
   font-weight: 5px;
 }
 
-.overLimit {
+.warning {
   color: red;
 }
+

@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const createTweetElement = function (tweetData) {
   const $tweet = `<article class="tweet">
     <div class="header">
@@ -13,7 +14,7 @@ const createTweetElement = function (tweetData) {
       <div class="handle">${tweetData.user.handle}</div>
     </div>
     <div class="content">
-      <p>${tweetData.content.text}</p>
+    <p>${escapeScript(tweetData.content.text)}</p>
     </div>
     <footer>
       <div class="time">${timeago.format(tweetData.created_at)}</div>
@@ -26,40 +27,68 @@ const createTweetElement = function (tweetData) {
   </article>`;
   return $tweet;
 };
-const renderTweets = function (tweetsArr) {
-  tweetsArr.sort((a, b) => b.created_at - a.created_at);
 
+//Renders tweets by looping through data base to produce dynamic tweet
+const renderTweets = function (tweetsArr) {
   for (const tweetData of tweetsArr) {
     const tweetHTML = createTweetElement(tweetData);
-    $("#all-tweet").append(tweetHTML);
+    $("#all-tweet").prepend(tweetHTML);
   }
 };
 
+//Loads tweets on browser via AJAX request
 const loadtweets = function () {
   $.get("/tweets").then(function (tweetsArr) {
     renderTweets(tweetsArr);
   });
 };
+
+//Error handling
 const postNewTweetOnSubmit = function () {
+  const maxCounter = 140;
   $("#new-tweet").on("submit", (evt) => {
     evt.preventDefault();
-    const tweetText = $("#tweet-text").val();
+    muteErrorMessage();
+    const tweetText = escapeScript($("#tweet-text").val());
+
     if (tweetText === "" || tweetText === null) {
-      alert("Please input your tweet");
-      return;
-    }
-    if (tweetText.length > 140) {
-      alert("Tweet length cannot be more than 140 characters");
+      showErrorMessage("Your tweet cannot be empty!");
       return;
     }
 
+    if (tweetText.length > maxCounter) {
+      showErrorMessage("Your tweet cannot exceed 140 characters!");
+      return;
+    }
+
+    //Request to post information to data base via AJAX request
     const param = $("#new-tweet").serialize();
-
     $.post("/tweets", param).then((responseTweet) => {
-      $("#all-tweet").prepend(createTweetElement(responseTweet));
+      muteErrorMessage();
+      $("#tweet-text").val("");
+      $("[name='counter']").html(maxCounter);
+      loadtweets();
     });
   });
 };
+
+const showErrorMessage = function (errorMessage) {
+  $("#error-message").html(errorMessage);
+  $("#error").slideDown("slow");
+};
+
+const muteErrorMessage = function () {
+  $("#error").slideUp();
+  $("#error-message").html("");
+};
+
+const escapeScript = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+//DOM is ready
 $(document).ready(function () {
   loadtweets();
   postNewTweetOnSubmit();

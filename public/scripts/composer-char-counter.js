@@ -5,9 +5,9 @@ $(document).ready(function () {
     const charLeft = 140 - this.value.length;
     counter.text(charLeft);
     if (charLeft < 0) {
-      counter.addClass("overLimit");
+      counter.addClass("warning");
     } else {
-      counter.removeClass("overLimit");
+      counter.removeClass("warning");
     }
   });
 });
