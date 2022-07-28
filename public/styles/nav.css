@@ -7,19 +7,20 @@ nav {
   justify-content: space-between;
   z-index: 1;
   position: fixed;
+  top: 0;
+  width: 100%;
   flex-direction: row;
   align-items: center;
-  padding: 1.5em;
-  overflow: hidden;
+  padding: 0px 1.5em;
 }
 
 .logo {
-  font-family: 'Bungee', sans-serif;
-  font-size: 1.75em;
+  font-family: "Bungee", sans-serif;
+  font-size: 2em;
   padding-top: 0.5em;
 }
 
-.generic-nav{
+.generic-nav {
   display: flex;
   flex-direction: column;
   align-items: center;

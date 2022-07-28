@@ -2,6 +2,8 @@
   border: 5px solid black;
   margin: 20px 0 50px;
   padding: 10px;
+  flex-wrap: wrap;
+  word-break:break-all
 }
 
 .tweet .header {
