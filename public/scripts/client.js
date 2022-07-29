@@ -63,10 +63,12 @@ const postNewTweetOnSubmit = function () {
 
     //Request to post information to data base via AJAX request
     const param = $("#new-tweet").serialize();
-    $.post("/tweets", param).then((responseTweet) => {
+    $.post("/tweets", param).then(() => {
       muteErrorMessage();
       $("#tweet-text").val("");
       $("[name='counter']").html(maxCounter);
+      //Clear current tweets before calling loadtweets function again
+      $(".tweet").remove();
       loadtweets();
     });
   });
