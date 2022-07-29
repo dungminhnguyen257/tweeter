@@ -39,6 +39,8 @@ const renderTweets = function (tweetsArr) {
 //Loads tweets on browser via AJAX request
 const loadtweets = function () {
   $.get("/tweets").then(function (tweetsArr) {
+    //clear the tweets only after the server respond
+    $(".tweet").remove();
     renderTweets(tweetsArr);
   });
 };
@@ -67,8 +69,6 @@ const postNewTweetOnSubmit = function () {
       muteErrorMessage();
       $("#tweet-text").val("");
       $("[name='counter']").html(maxCounter);
-      //Clear current tweets before calling loadtweets function again
-      $(".tweet").remove();
       loadtweets();
     });
   });
