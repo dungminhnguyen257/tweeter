@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/loading.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,53 +35,57 @@
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" 
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"></script>
-
+    
     <!-- Prevents viewport zooming -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav> 
-      <span class="logo">tweeter</span>
-      <span class="generic-nav">
-        <p><strong> Write </strong> a new tweet</p>
-        <div><i class="fa-solid fa-angles-down"></i></div>
-      </span>
-    </nav>
-    <section id="content">
-      <header id="header">
-        <div><img src="/images/profile-hex.png" id="user-image"></div>
-        <div>
+    <div id="loading">
+      <svg class="cube" style="height:80px" version="1.1" viewBox="0 0 490.45 490.45" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <path d="m245.23 0-201.39 126.81v236.82l201.39 126.81 201.39-126.81v-236.82l-201.39-126.81zm158.24 135.1-158.24 99.643-158.24-99.643 158.24-99.643 158.24 99.643zm-329.63 27.172 156.39 98.477v184.81l-156.39-98.478v-184.81zm186.39 283.29v-184.81l156.39-98.478v184.81l-156.39 98.478z" height:120px"/>
+        </svg>
+    </div>
+      <!-- Top nav bar (fixed) -->
+      <nav> 
+        <span class="logo">tweeter</span>
+        <span class="generic-nav">
+          <p><strong> Write </strong> a new tweet</p>
+          <div><i class="fa-solid fa-angles-down"></i></div>
+        </span>
+      </nav>
+      <section id="content">
+        <header id="header">
+          <div><img src="/images/profile-hex.png" id="user-image"></div>
+          <div>
             <h2>BN</h2>
-        </div>
-
-      </header>
-      <!-- Page-specific (main) content here -->
-      <main id="tweets-container">
-        <section class="new-tweet">
-          <div id="error">
-            <i class="fas fa-exclamation-triangle"></i>&nbsp;
-            <span id="error-message"></span>&nbsp;
-            <i class="fas fa-exclamation-triangle"></i>
           </div>
-          <div class="new-tweet-form">
-            <form id="new-tweet" method="POST" action="/tweets/">
-              <div class="tweet-input">
-                <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-              </div>
-              <div class="tweet-submit">
-                <button type="submit" id="tweet-submit-button">Tweet</button>
-                <output name="counter" class="counter" for="tweet-text">140</output>
-              </div>
-            </form>
-          </div>
-        </section>
-        <section id="all-tweet">
-        </section>
-      </main>
-    </section> 
-<!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </body>
-</html>
+        </header>
+        <!-- Page-specific (main) content here -->
+        <main id="tweets-container">
+          <section class="new-tweet">
+            <div id="error">
+              <i class="fas fa-exclamation-triangle"></i>&nbsp;
+              <span id="error-message"></span>&nbsp;
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="new-tweet-form">
+              <form id="new-tweet" method="POST" action="/tweets/">
+                <div class="tweet-input">
+                  <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+                </div>
+                <div class="tweet-submit">
+                  <button type="submit" id="tweet-submit-button">Tweet</button>
+                  <output name="counter" class="counter" for="tweet-text">140</output>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section id="all-tweet">
+          </section>
+        </main>
+      </section> 
+      <!-- App JS -->
+      <script type="text/javascript" src="/scripts/client.js"></script>
+      <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    </body>
+    </html>
