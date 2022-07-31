@@ -22,8 +22,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 #### Web App's (Tweeter) Home Page
 
-!["Screenshot of home page"](https://github.com/dungminhnguyen257/tweeter/blob/master/doc/tweeter-page.png?raw=true)
+!["Screenshot of home page"](https://github.com/dungminhnguyen257/tweeter/blob/master/doc/home-page.png?raw=true)
 
 #### Error message is displayed when the tweet is empty
 
-!["Screenshot of error message"](https://github.com/dungminhnguyen257/tweeter/blob/master/doc/tweeter-error-messages.png?raw=true)
+!["Screenshot of error message"](https://github.com/dungminhnguyen257/tweeter/blob/master/doc/error-message.png?raw=true)
