@@ -10,14 +10,6 @@
   align-items: center;
 }
 
-/* body {
-  height: 100vh;
-  background-color: #001219;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .cube {
   animation: 2s lightIn cubic-bezier(0.1, 0.7, 0.8, 0.1) infinite alternate;
 }
